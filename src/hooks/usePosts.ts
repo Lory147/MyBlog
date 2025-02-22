@@ -1,6 +1,7 @@
+import { Post } from "@/components/PostCard";
 import { useRouter } from "next/router";
 
-export function usePosts(posts: any[]) {
+export function usePosts(posts: Post[]) {
   const router = useRouter();
   const tagQuery = router.query.tag;
   const tags = Array.isArray(tagQuery) ? tagQuery : tagQuery ? [tagQuery] : [];

@@ -7,7 +7,7 @@ export async function getStaticProps() {
   const res = await fetch("https://jsonplaceholder.typicode.com/posts");
   const posts = await res.json();
 
-  const postsWithImages = posts.map((post: any) => ({
+  const postsWithImages = posts.map((post: Post) => ({
     ...post,
     image: `https://picsum.photos/seed/${post.id}/600/400`,
   }));
