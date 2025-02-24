@@ -7,7 +7,9 @@ export default function Navbar() {
   return (
     <nav className="bg-gray-900 text-white p-4">
       <div className="max-w-full mx-auto flex justify-between px-8">
-        <h1 className="text-xl font-bold">My Blog</h1>
+        <Link href="/" className="text-xl font-bold">
+          My Blog
+        </Link>
         <div className="space-x-4">
           <Link
             href="/"

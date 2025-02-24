@@ -2,17 +2,29 @@ import { usePosts } from "@/hooks/usePosts";
 import { highlightText } from "@/utils/highlightText";
 import PostList from "@/components/PostList";
 import { Post } from "@/components/PostCard";
+import router from "next/router";
 
 export async function getStaticProps() {
-  const res = await fetch("https://jsonplaceholder.typicode.com/posts");
-  const posts = await res.json();
+  try {
+    const res = await fetch("https://jsonplaceholder.typicode.com/posts");
 
-  const postsWithImages = posts.map((post: Post) => ({
-    ...post,
-    image: `https://picsum.photos/seed/${post.id}/600/400`,
-  }));
+    if (!res.ok) {
+      throw new Error(`Failed to fetch, status: ${res.status}`);
+    }
 
-  return { props: { posts: postsWithImages } };
+    const posts = await res.json();
+
+    const postsWithImages = posts.map((post: Post) => ({
+      ...post,
+      image: `https://picsum.photos/seed/${post.id}/600/400`,
+    }));
+
+    return { props: { posts: postsWithImages } };
+  } catch (error) {
+    console.error("Error fetching posts:", error);
+
+    return { props: { posts: [] } };
+  }
 }
 
 export default function Home({ posts }: { posts: Post[] }) {
@@ -35,7 +47,7 @@ export default function Home({ posts }: { posts: Post[] }) {
             </span>
           ))}
           <button
-            onClick={() => removeTag("")}
+            onClick={() => router.push("/")}
             className="ml-4 text-red-500 underline"
           >
             Clear All Filters

@@ -1,16 +1,28 @@
 import { Post } from "@/components/PostCard";
+import { usePosts } from "@/hooks/usePosts";
 import { GetStaticPaths, GetStaticProps } from "next";
 import Link from "next/link";
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const res = await fetch("https://jsonplaceholder.typicode.com/posts");
-  const posts: Post[] = await res.json();
+  try {
+    const res = await fetch("https://jsonplaceholder.typicode.com/posts");
 
-  const paths = posts.map((post) => ({
-    params: { id: post.id.toString() },
-  }));
+    if (!res.ok) {
+      throw new Error(`Failed to fetch, status: ${res.status}`);
+    }
 
-  return { paths, fallback: false };
+    const posts: Post[] = await res.json();
+
+    const paths = posts.map((post) => ({
+      params: { id: post.id.toString() },
+    }));
+
+    return { paths, fallback: false };
+  } catch (error) {
+    console.error("Error fetching posts in getStaticPaths:", error);
+
+    return { paths: [], fallback: true };
+  }
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
@@ -26,6 +38,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 };
 
 export default function PostPage({ post }: { post: Post }) {
+  const { capitalizeFirstLetter } = usePosts([post]);
+
   return (
     <main className="max-w-3xl mx-auto p-4 mt-12">
       {" "}
@@ -39,8 +53,12 @@ export default function PostPage({ post }: { post: Post }) {
 
         {/* Content Section */}
         <div className="p-6">
-          <h1 className="text-3xl font-bold">{post.title}</h1>
-          <p className="mt-4 text-gray-700">{post.body}</p>
+          <h1 className="text-3xl font-bold">
+            {capitalizeFirstLetter(post.title)}
+          </h1>
+          <p className="mt-4 text-gray-700">
+            {capitalizeFirstLetter(post.body)}
+          </p>
           <p className="mt-2 text-gray-500">Author ID: {post.userId}</p>
 
           {/* Back to Home Button */}

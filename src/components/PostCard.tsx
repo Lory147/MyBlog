@@ -47,7 +47,6 @@ export default function PostCard({
           )}
         </p>
 
-        {/* Hashtags */}
         <div className="mt-2">
           {post.body
             .toLowerCase()
@@ -55,7 +54,6 @@ export default function PostCard({
             .slice(0, 5)
             .map((word) => (
               <button
-                key={word}
                 onClick={() => onTagClick(word)}
                 className="text-blue-500 mr-2 hover:underline"
               >

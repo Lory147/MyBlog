@@ -3,13 +3,13 @@
 A modern blog application built with Next.js 14, Tailwind CSS, and TypeScript, featuring tag-based filtering, highlighted search results, and server-side data fetching.
 
 🌍 Live Demo
-👉 Visit the Deployed App
+👉 myblog-nextjs-xi.vercel.app
 
 📦 Installation & Setup
 
 1️⃣ Clone the Repository
 git clone https://github.com/Lory147/MyBlog
-cd nextjs-blog
+cd blog-app
 
 2️⃣ Install Dependencies
 npm install
@@ -55,19 +55,13 @@ vercel
    hooks/usePosts.tsx → Handles filtering logic separately.
    utils/highlightText.tsx → Keeps text formatting functions outside the components.
 
-   🚀 Future Improvements
-   [ ] User authentication (NextAuth.js)
-   [ ] CMS integration (Contentful / Sanity)
-   [ ] Dark mode support
-   [ ] Infinite scrolling with pagination
+🛠️ Tech Stack
+Frontend: Next.js, React, Tailwind CSS, TypeScript
+Deployment: Vercel
+API Data: JSONPlaceholder (for mock data)
 
-   🛠️ Tech Stack
-   Frontend: Next.js, React, Tailwind CSS, TypeScript
-   Deployment: Vercel
-   API Data: JSONPlaceholder (for mock data)
-   👥 Contributing
-
-   Pull requests are welcome! Feel free to open an issue or suggest improvements.
+👥 Contributing
+Pull requests are welcome! Feel free to open an issue or suggest improvements.
 
 📄 License
 This project is MIT Licensed.
