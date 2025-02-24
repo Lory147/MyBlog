@@ -52,8 +52,9 @@ export default function PostCard({
             .toLowerCase()
             .split(/\s+/)
             .slice(0, 5)
-            .map((word) => (
+            .map((word, index) => (
               <button
+                key={index}
                 onClick={() => onTagClick(word)}
                 className="text-blue-500 mr-2 hover:underline"
               >
