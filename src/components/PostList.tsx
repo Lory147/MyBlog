@@ -1,4 +1,3 @@
-import { JSX } from "react";
 import PostCard, { Post } from "./PostCard";
 
 interface PostListProps {

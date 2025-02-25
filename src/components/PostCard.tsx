@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { JSX } from "react";
 
 export interface Post {
   body: string;
