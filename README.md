@@ -1,6 +1,6 @@
 🚀 Next.js Blog
 
-A modern blog application built with Next.js 14, Tailwind CSS, and TypeScript, featuring tag-based filtering, highlighted search results, and server-side data fetching.
+A modern blog application built with Next.js 14, Tailwind CSS, and TypeScript, featuring tag-based filtering and server-side data fetching.
 
 🌍 Live Demo
 👉 myblog-nextjs-xi.vercel.app
@@ -44,7 +44,6 @@ vercel
 2. Tag-Based Filtering
    Users can filter posts by tags (extracted from post content).
    Clicking a hashtag dynamically updates the URL query.
-   Tags are highlighted in the post content when filtering.
 
 3. Modular & Scalable Architecture
    components/PostList.tsx → Reusable post listing component.
