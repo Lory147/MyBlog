@@ -23,7 +23,9 @@ export function usePosts(posts: Post[]) {
       : posts;
 
   const onTagClick = (tag: string) => {
-    router.push({ query: { tag: [...tags, tag] } });
+    if (!tags.includes(tag)) {
+      router.push({ query: { tag: [...tags, tag] } });
+    }
   };
 
   const removeTag = (tagToRemove: string) => {
