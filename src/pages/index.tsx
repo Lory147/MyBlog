@@ -1,5 +1,4 @@
 import { usePosts } from "@/hooks/usePosts";
-import { highlightText } from "@/utils/highlightText";
 import PostList from "@/components/PostList";
 import { Post } from "@/components/PostCard";
 import router from "next/router";
@@ -57,8 +56,6 @@ export default function Home({ posts }: { posts: Post[] }) {
 
       <PostList
         posts={filteredPosts}
-        tags={tags}
-        highlightText={highlightText}
         capitalizeFirstLetter={capitalizeFirstLetter}
         onTagClick={onTagClick}
       />

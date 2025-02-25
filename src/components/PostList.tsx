@@ -3,19 +3,12 @@ import PostCard, { Post } from "./PostCard";
 
 interface PostListProps {
   posts: Post[];
-  tags: string[];
-  highlightText: (
-    text: string,
-    wordsToHighlight: string[]
-  ) => JSX.Element | string;
   capitalizeFirstLetter: (text: string) => string;
   onTagClick: (tag: string) => void;
 }
 
 export default function PostList({
   posts,
-  tags,
-  highlightText,
   capitalizeFirstLetter,
   onTagClick,
 }: PostListProps) {
@@ -25,8 +18,6 @@ export default function PostList({
         <PostCard
           key={post.id}
           post={post}
-          tags={tags}
-          highlightText={highlightText}
           capitalizeFirstLetter={capitalizeFirstLetter}
           onTagClick={onTagClick}
         />

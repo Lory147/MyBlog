@@ -11,19 +11,12 @@ export interface Post {
 
 interface PostCardProps {
   post: Post;
-  tags: string[];
-  highlightText: (
-    text: string,
-    wordsToHighlight: string[]
-  ) => JSX.Element | string;
   capitalizeFirstLetter: (text: string) => string;
   onTagClick: (tag: string) => void;
 }
 
 export default function PostCard({
   post,
-  tags,
-  highlightText,
   capitalizeFirstLetter,
   onTagClick,
 }: PostCardProps) {
@@ -37,14 +30,11 @@ export default function PostCard({
       <div className="p-4">
         <h2 className="text-xl font-bold">
           <Link href={`/post/${post.id}`} className="text-blue-500">
-            {highlightText(capitalizeFirstLetter(post.title), tags)}
+            {capitalizeFirstLetter(post.title)}
           </Link>
         </h2>
         <p className="text-gray-700">
-          {highlightText(
-            capitalizeFirstLetter(post.body).slice(0, 100) + "...",
-            tags
-          )}
+          {capitalizeFirstLetter(post.body).slice(0, 100) + "..."}
         </p>
 
         <div className="mt-2">
