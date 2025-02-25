@@ -46,14 +46,9 @@ vercel
    Clicking a hashtag dynamically updates the URL query.
    Tags are highlighted in the post content when filtering.
 
-3. Advanced Text Highlighting
-   Implements a custom utility function to highlight matching words.
-   Uses Regular Expressions (RegEx) to detect words case-insensitively.
-
-4. Modular & Scalable Architecture
+3. Modular & Scalable Architecture
    components/PostList.tsx → Reusable post listing component.
    hooks/usePosts.tsx → Handles filtering logic separately.
-   utils/highlightText.tsx → Keeps text formatting functions outside the components.
 
 🛠️ Tech Stack
 Frontend: Next.js, React, Tailwind CSS, TypeScript
